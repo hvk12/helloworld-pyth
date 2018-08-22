@@ -1,0 +1,15 @@
+#attempting multi stage build
+FROM python:2.7 as base
+
+FROM base as builder
+RUN mkdir /install
+WORKDIR /install
+COPY requirements.txt /requirements.txt
+RUN pip install --install-option="--prefix=/install" -r /requirements.txt
+#RUN pip install --target=/install -r /requirements.txt
+FROM base
+COPY --from=builder /install /usr
+COPY app /app
+WORKDIR /app
+EXPOSE 5000
+ENTRYPOINT ["python", "web_app.py"]
