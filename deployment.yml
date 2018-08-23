@@ -1,0 +1,34 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: helloworld-pyth-deployment
+  labels:
+    app: helloworld-pyth
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld-pyth
+  template:
+    metadata:
+      labels:
+        app: helloworld-pyth
+    spec:
+      containers:
+      - name: helloworld-pyth
+        image: index.docker.io/hk2812/helloworld-pyth:latest
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: helloworld-pythservice
+spec:
+  type : LoadBalancer
+  selector:
+    app: helloworld-pyth
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
+    nodePort: 30000
