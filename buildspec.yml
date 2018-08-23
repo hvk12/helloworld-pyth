@@ -1,10 +1,12 @@
 version: 0.2
-
+env:
+  parameter-store:
+    DOCKER_HUB_PASSWORD: "github_cred"
 phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(docker login -u ${DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_PASSWORD}
+      - docker login -u ${DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_PASSWORD}
   build:
     commands:
       - echo Build started on `date`
