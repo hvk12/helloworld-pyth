@@ -1,5 +1,7 @@
 version: 0.2
-
+env:
+  parameter-store:
+    DOCKER_HUB_PASSWORD: "github_cred"
 phases:
   pre_build:
     commands:
