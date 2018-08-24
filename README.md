@@ -15,8 +15,7 @@ The git hub repo is
     **Dockerfile** - the docker file to build the image 
     [dockerfile](https://github.com/hvk12/helloworld-pyth/blob/master/Dockerfile)
     **buildspec.yml** - the build spec for AWS Code build project to build the docker image and publish to Docker hub repository
-    [buildspec.yml](https://github.com/hvk12/helloworld-pyth/blob/master/buildspec.yml)
-    
+    [buildspec.yml](https://github.com/hvk12/helloworld-pyth/blob/master/buildspec.yml)    
         ***Environment variables*** used to build (passed as parameters in the aws code build project)
             - **IMAGE_REPO_NAME**  hk2812/helloworld-pyth (Repository 	name where the docker image resides)
             - **IMAGE_TAG**  - latest
