@@ -37,4 +37,4 @@ The git hub repo is
  
 
      sudo kubectl create -f deployment.yml
-	 sudo kubectl apply -f deployment.yml
+	  sudo kubectl apply -f deployment.yml
